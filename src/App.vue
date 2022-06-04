@@ -1,26 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="full-page">
+    <div class="navbar">
+      <TopNavBar 
+      v-bind:activePage="this.activePage"
+      @changeTab="this.activePage=$event"
+      />
+    </div>
+    <div class="main-content">
+      <MainPage v-bind:activePage="this.activePage"/>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopNavBar from './components/TopNavBar.vue'
+import MainPage from './components/MainPage.vue'
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      activePage: 'map'
+    }
+  },
   components: {
-    HelloWorld
-  }
+    TopNavBar,
+    MainPage,
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0px;
+}
+.full-page {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  margin: 0px;
+}
+.navbar {
+  flex-grow: 0;
+  height: 75px;
+}
+.main-content {
+  flex-grow: 1;
 }
 </style>
