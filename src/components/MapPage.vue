@@ -1,5 +1,6 @@
 <template>
-  <div id="mapContainer"></div>
+    <button id="newEventButton">New Event</button>
+    <div id="mapContainer"></div>
 </template>
 
 <script>
@@ -29,9 +30,16 @@ export default {
 
 <style scoped>
 #mapContainer {
-  position: absolute;
-  top: 75px;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    top: 75px;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+#newEventButton {
+    position: absolute;
+    top: 100px;
+    left: 45%;
+    z-index: 11;
 }
 </style>
