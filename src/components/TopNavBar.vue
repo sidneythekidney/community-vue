@@ -75,5 +75,6 @@ export default {
 }
 .highlight-title {
     color: #38b8eb;
+    font-size: 17px;
 }
 </style>
